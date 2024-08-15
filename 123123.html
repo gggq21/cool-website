@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lemon</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #countdown {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        #image {
+            display: none;
+            max-width: 100%;
+            height: auto;
+        }
+        #startButton {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button id="startButton">НАЖМИ</button>
+<div id="countdown" style="display: none;">5</div>
+<img id="image" src="https://cdn.discordapp.com/attachments/759328626717622283/1273699360101896243/5327920683629534637.jpg?ex=66bf9077&is=66be3ef7&hm=3edabb8b1e1f13b3655f67d3837d6b50776d2b9732a5a9dd23a4a817aeca346f&" alt="Image">
+<audio id="audio">
+    <source src="lit.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    let startButton = document.getElementById('startButton');
+    let countdownElement = document.getElementById('countdown');
+    let imageElement = document.getElementById('image');
+    let audioElement = document.getElementById('audio');
+    let countdown = 5;
+
+    startButton.addEventListener('click', function() {
+        startButton.style.display = 'none';
+        countdownElement.style.display = 'block';
+
+        let interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(interval);
+                countdownElement.style.display = 'none';
+                imageElement.style.display = 'block';
+                audioElement.play();
+            }
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
