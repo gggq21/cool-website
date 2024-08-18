@@ -29,7 +29,8 @@
 
         @media(max-width: 767px) {
             body {
-                background-image: url('ll.jpg'); /* Mobile background image */
+                background-color: white; /* Mobile background color */
+                background-image: none; /* Remove background image on mobile */
             }
         }
 
@@ -55,6 +56,7 @@
                 width: 100%; /* Full width for mobile */
                 height: auto; /* Adjust height for mobile */
                 max-width: none; /* Remove maximum width constraint */
+                padding: 10px; /* Reduce padding for mobile */
             }
         }
 
@@ -76,6 +78,13 @@
             position: relative; /* Position relative to ensure pseudo-element positioning */
             overflow: hidden; /* Ensure pseudo-element does not overflow */
             transition: all 0.3s ease; /* Smooth transitions for all properties */
+        }
+
+        @media(max-width: 767px) {
+            #startButton {
+                font-size: 20px; /* Reduce button font size for mobile */
+                padding: 10px 20px; /* Reduce padding for mobile */
+            }
         }
 
         #startButton::before {
@@ -125,11 +134,25 @@
             margin-bottom: 200px; /* Space between image and content */
         }
 
+        @media(max-width: 767px) {
+            #top-image {
+                width: 70%; /* Reduce image size for mobile */
+                left: 15%;
+                margin-bottom: 20px; /* Reduce margin between image and content */
+            }
+        }
+
         .content {
-            
             margin-top: 85px; /* Keep the text above the button */
             font-family: 'Poppins', sans-serif;
             font-size: 45px;
+        }
+
+        @media(max-width: 767px) {
+            .content {
+                font-size: 20px; /* Reduce font size for mobile */
+                margin-top: 30px; /* Adjust margin for mobile */
+            }
         }
     </style>
 </head>
