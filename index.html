@@ -24,7 +24,6 @@
             background-size: cover;
             background-position: center;
             background-image: url('l.jpg'); /* Desktop background image */
-            transition: background-image 0s; /* Immediate change for background image */
         }
 
         @media(max-width: 767px) {
@@ -39,7 +38,6 @@
             border-radius: 10px;
             text-align: center;
             box-sizing: border-box;
-            transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for hiding */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -57,11 +55,6 @@
                 max-width: none; /* Remove maximum width constraint */
                 padding: 10px; /* Reduce padding for mobile */
             }
-        }
-
-        #info-container.hidden {
-            opacity: 0;
-            visibility: hidden;
         }
 
         #startButton {
@@ -165,7 +158,7 @@
     </div>
 </div>
 
-<audio id="audio" src="lit.mp3"></audio> <!-- Replace with your audio file URL -->
+<audio id="audio" src="li111t.mp3"></audio> <!-- Replace with your audio file URL -->
 
 <script>
     document.getElementById('startButton').addEventListener('click', function() {
@@ -175,13 +168,13 @@
             audio.play();
         }
 
-        // Hide the info container
+        // Hide the info container immediately
         var infoContainer = document.getElementById('info-container');
         if (infoContainer) {
-            infoContainer.classList.add('hidden');
+            infoContainer.style.display = 'none';
         }
 
-        // Change the background image based on the device
+        // Change the background image immediately based on the device
         if (window.innerWidth <= 767) {
             document.body.style.backgroundImage = "url('mobile-new-background.jpg')"; // Mobile new background image
         } else {
