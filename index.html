@@ -23,14 +23,13 @@
             align-items: center;
             background-size: cover;
             background-position: center;
-            background-image: url('l.jpg'); /* Default background image */
+            background-image: url('l.jpg'); /* Desktop background image */
             transition: background-image 0s; /* Immediate change for background image */
         }
 
         @media(max-width: 767px) {
             body {
-                background-color: white; /* Mobile background color */
-                background-image: none; /* Remove background image on mobile */
+                background-image: url('ll.jpg'); /* Mobile background image */
             }
         }
 
@@ -53,7 +52,7 @@
 
         @media(max-width: 767px) {
             #info-container {
-                width: 100%; /* Full width for mobile */
+                width: 90%; /* Full width for mobile */
                 height: auto; /* Adjust height for mobile */
                 max-width: none; /* Remove maximum width constraint */
                 padding: 10px; /* Reduce padding for mobile */
