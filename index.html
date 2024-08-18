@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LemonRedirect</title>
+    
+    <link rel="icon" href="lemon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="lemon.ico" type="image/x-icon">
+
+    <!-- Link to Google Fonts for Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-image: url('l.jpg'); /* Default background image */
+            transition: background-image 0s; /* Immediate change for background image */
+        }
+
+        @media(max-width: 767px) {
+            body {
+                background-image: url('ll.jpg'); /* Mobile background image */
+            }
+        }
+
+        #info-container {
+            background-color: #ffffff; /* Solid white background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for hiding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 500px; /* Fixed width for desktop */
+            height: 500px; /* Fixed height for desktop */
+            max-width: 100%; /* Ensure container doesn't exceed viewport width */
+            position: relative; /* Position relative to contain the image */
+        }
+
+        @media(max-width: 767px) {
+            #info-container {
+                width: 100%; /* Full width for mobile */
+                height: auto; /* Adjust height for mobile */
+                max-width: none; /* Remove maximum width constraint */
+            }
+        }
+
+        #info-container.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #startButton {
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            padding: 20px 40px;
+            background: linear-gradient(to right, #FFDC80, #FCAF45, #F77737, #F56040, #FD1D1D, #E1306C, #C13584, #833AB4, #5851DB, #405DE6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            position: relative; /* Position relative to ensure pseudo-element positioning */
+            overflow: hidden; /* Ensure pseudo-element does not overflow */
+            transition: all 0.3s ease; /* Smooth transitions for all properties */
+        }
+
+        #startButton::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 5px;
+            background: transparent;
+            border: 4px solid transparent;
+            transition: all 0.3s ease;
+            pointer-events: none; /* Prevent interference with button clicks */
+        }
+
+        #startButton:hover {
+            background: white;
+            color: transparent; /* Hide text to reveal gradient */
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        #startButton:hover::before {
+            border-color: transparent;
+            border-image: linear-gradient(to right, #FFDC80, #FCAF45, #F77737, #F56040, #FD1D1D, #E1306C, #C13584, #833AB4, #5851DB, #405DE6);
+            border-image-slice: 1;
+        }
+
+        #startButton:hover::after {
+            content: 'GO';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(to right, #FFDC80, #FCAF45, #F77737, #F56040, #FD1D1D, #E1306C, #C13584, #833AB4, #5851DB, #405DE6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #top-image {
+            position: absolute;
+            top: 20px; /* Move the image down by 20px */
+            left: 13px;
+            width: 95%; /* Stretch image across the width */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 200px; /* Space between image and content */
+        }
+
+        .content {
+            
+            margin-top: 85px; /* Keep the text above the button */
+            font-family: 'Poppins', sans-serif;
+            font-size: 45px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="info-container">
+    <img id="top-image" src="lo.png" alt="Top Image"> <!-- Replace with your image URL -->
+    <div class="content">
+        <p>Press "GO" to go to the Instagram </p>
+        <button id="startButton">GO</button>
+    </div>
+</div>
+
+<audio id="audio" src="lit.mp3"></audio> <!-- Replace with your audio file URL -->
+
+<script>
+    document.getElementById('startButton').addEventListener('click', function() {
+        // Play the audio
+        var audio = document.getElementById('audio');
+        if (audio) {
+            audio.play();
+        }
+
+        // Hide the info container
+        var infoContainer = document.getElementById('info-container');
+        if (infoContainer) {
+            infoContainer.classList.add('hidden');
+        }
+
+        // Change the background image based on the device
+        if (window.innerWidth <= 767) {
+            document.body.style.backgroundImage = "url('mobile-new-background.jpg')"; // Mobile new background image
+        } else {
+            document.body.style.backgroundImage = "url('desktop-new-background.jpg')"; // Desktop new background image
+        }
+    });
+</script>
+
+</body>
+</html>
